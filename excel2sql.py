@@ -3,7 +3,7 @@
 import xlrd
 import os
 """读取excel"""
-""""D:/wing/wing/wing\Document/中科软/ECIF/ecif表结构/数据功能模型-基础版-表结构V3.xlsx"""
+"""""""
 # def readFromXl(xlName):
 # 	xl = xlrd.open_workbook(xlName)
 # 	xlSheet = xl.sheets()
@@ -95,8 +95,8 @@ class GetSqlObj():
 
 
 if __name__=="__main__":
-	#readFromXl("D:/wing/wing/wing/Document/中科软/ECIF/ecif表结构/数据功能模型-基础版-表结构V3.xlsx")
-	# xlsx = xlsxObj("D:/wing/wing/wing/Document/中科软/ECIF/ecif表结构/数据功能模型-基础版-表结构V3.xlsx")
+	#readFromXl("")
+	# xlsx = xlsxObj("")
 	# xlsx.readFromxls()
 
 	# tableNameCol = 0 表名所在列
@@ -104,11 +104,9 @@ if __name__=="__main__":
 	# typeNameCol = 4  表字段类型所在列
 	# commentCol = 3  表字段注释所在列
 
-	sheets = ["客户基本信息","客户联系方式","客户信息-客户轮廓","客户信息-客户关系","客户购买产品-保单信息",
-			  "客户购买产品-保单标的物","事件-客户事件","交互-客户接触信息","服务-服务管理","客户评价-客户积分表",
-			  "销售-销售管理","日志-日志信息"]
+	sheets = [""]
 
-	xlsName = "D:/wing/wing/wing/Document/中科软/ECIF/ecif项目文档/2、数据功能模型-基础版-表结构V3.xlsx"
+	xlsName = ""
 
 	xlsx = xlrd.open_workbook(xlsName)
 
