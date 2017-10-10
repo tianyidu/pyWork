@@ -3,7 +3,7 @@ import http.cookiejar
 
 #url = "http://10.8.20.110:7000/cognos/"
 url = "http://www.baidu.com"
-param = {"username":"developer","password":"ygbx123!"}
+param = {"username":"","password":""} #用户名密码
 postdata = urllib.parse.urlencode(param).encode("utf-8")
 
 req = urllib.request.Request(url,postdata)
