@@ -37,21 +37,21 @@ def openReport(driver,report_l1,report_l2,report_l3):
 	driver.get_screenshot_as_file(os.path.join("d:/",report_l3+".jpg"))
 
 if __name__=="__main__": 
-	#report_l1 = ["网销报表","精算报表","网销报表"]
-	#report_l2 = ["WX001.(O001)网销业务情况统计表","JS001.(B00X)事故年度出险频率报表_出险件数","WX001.(O001)网销业务情况统计表"]
-	#report_l3 = ["网销业务情况统计表","事故年度出险频率报表_出险件数","网销业务情况统计表"]
-	report_l1 = ["网销报表"]
-	report_l2 = ["WX001.(O001)网销业务情况统计表"]
-	report_l3 = ["网销业务情况统计表"]
+	#report_l1 = ["报表1","报表2","报表3"]
+	#report_l2 = ["情况统计表","出险频率报表_出险件数","业务情况统计表"]
+	#report_l3 = ["情况统计表","险频率报表","情况统计表"]
+	report_l1 = ["报表"]
+	report_l2 = ["业务情况统计表"]
+	report_l3 = ["情况统计表"]
 
 	url = "http://10.8.20.110:7000/cognos"
 	driver = webdriver.Ie()
 	driver.get(url)
 
-	driver.find_element_by_name("usercode").send_keys("developer")
-	driver.find_element_by_name("password").send_keys("ygbx123!")
+	driver.find_element_by_name("usercode").send_keys("") #用户名
+	driver.find_element_by_name("password").send_keys("") #密码
 
-	driver.find_element_by_id("login2_login2").submit()
+	driver.find_element_by_id("").submit()  #form表单id
 	time.sleep(1)
 	leftFrame = driver.find_element_by_id("leftFrame")
 	driver.switch_to.frame(leftFrame)
