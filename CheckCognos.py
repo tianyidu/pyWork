@@ -44,7 +44,7 @@ if __name__=="__main__":
 	report_l2 = ["业务情况统计表"]
 	report_l3 = ["情况统计表"]
 
-	url = "http://10.8.20.110:7000/cognos"
+	url = "" #cognos报表地址
 	driver = webdriver.Ie()
 	driver.get(url)
 
