@@ -3,7 +3,7 @@ import os
 import time
 #D:\ProgramFiles\operadriver_win64
 
-url = "http://192.168.137.1:8088/SyncReport/login.jsp"
+url = ""  #访问地址
 
 driver = webdriver.Opera(executable_path="D:\\ProgramFiles\\operadriver_win64\\operadriver.exe")
 driver.get(url)
