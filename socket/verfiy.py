@@ -35,7 +35,7 @@ def judgeData(imdata,x,y,cnt=0):
 		return 0
 
 
-im = Image.open("C:/Users/dingxian/Pictures/verify.jpg")
+im = Image.open("C:/Users/Pictures/verify.jpg")
 im = im.convert("L")
 threshold = 140
 table = []
