@@ -43,9 +43,9 @@ class EmailUtil:
 
 if __name__ == "__main__":
     # print(mimetypes.guess_type(r"E:\PWORKSPACE\testUwsgi\test.xlsx"))
-    From = "dingxian@5i5j.com"
+    From = ""
     passwd = ""
-    To = "dingxian@5i5j.com"
+    To = ""
     subject = "test email"
     content = "this is a test email"
     attachments = [r"E:\PWORKSPACE\testUwsgi\test.xlsx"]
