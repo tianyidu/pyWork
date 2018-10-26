@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../WiwjPicture/.idea/WiwjPicture.iml" filepath="$PROJECT_DIR$/../WiwjPicture/.idea/WiwjPicture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../demo/.idea/demo.iml" filepath="$PROJECT_DIR$/../demo/.idea/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../house3/.idea/house3.iml" filepath="$PROJECT_DIR$/../house3/.idea/house3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../houseUtil/.idea/houseUtil.iml" filepath="$PROJECT_DIR$/../houseUtil/.idea/houseUtil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sparkMonitor/.idea/sparkMonitor.iml" filepath="$PROJECT_DIR$/../sparkMonitor/.idea/sparkMonitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spider_pic/.idea/spider_pic.iml" filepath="$PROJECT_DIR$/../spider_pic/.idea/spider_pic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tensorFlowDemo/.idea/tensorFlowDemo.iml" filepath="$PROJECT_DIR$/../tensorFlowDemo/.idea/tensorFlowDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/testUwsgi.iml" filepath="$PROJECT_DIR$/.idea/testUwsgi.iml" />
+    </modules>
+  </component>
+</project>
