@@ -1,0 +1,93 @@
+from keras.applications import VGG16
+from keras import models
+from keras.models import Sequential
+from keras.layers import Dense,Flatten,Conv2D
+from keras.optimizers import RMSprop
+from  keras.preprocessing import image
+import numpy as np
+from matplotlib import pyplot as plt
+from keras import backend as K
+import cv2
+
+model = Sequential()
+# conv_base = VGG16(weights="imagenet")
+# # model.add(conv_base)
+# for l in conv_base.layers:
+#     model.add(l)
+model.add(Conv2D(32,(3,3),padding="SAME",activation="relu",input_shape=(224,224,3)))
+model.add(Conv2D(32,(3,3),padding="SAME",activation="relu"))
+model.add(Conv2D(32,(3,3),padding="SAME",activation="relu",name="block5_conv3"))
+model.add(Flatten())
+model.add(Dense(2,activation="softmax"))
+model.compile(loss="binary_crossentropy",
+              optimizer=RMSprop(),
+              metrics=["acc"])
+model.summary()
+
+print("*"*16)
+print(model.layers)
+print(model.output)
+print(model.layers[0].output)
+
+# layer_output = [layer.get_output_at(1) for layer in model.layers[:16]]
+# activation_model = models.Model(inputs=model.input,outputs=layer_output)
+
+imagename="butterfly.jpg"
+
+img = image.load_img(imagename,target_size=(224,224))
+# print(img)
+img_tensor = image.img_to_array(img)/255
+img_tensor = np.expand_dims(img_tensor,axis=0)
+print(img_tensor.shape)
+# plt.imshow(img_tensor)
+# plt.show()
+
+# activations = activation_model.predict(img_tensor)
+# print(len(activations))
+# first_layer_activation = activations[2]
+# plt.matshow(first_layer_activation[0,:,:,30])
+# plt.show()
+
+# predict = model.predict(img_tensor)
+# print(predict)
+
+print("*"*10)
+
+butterfly = model.output[:,1]
+last_conv_layer = model.get_layer("block5_conv3")
+grads = K.gradients(butterfly,last_conv_layer.output)
+print("grads",grads)
+grads = grads[0]
+
+pool_grads = K.mean(grads,axis=(0,1,2))
+print("pool_grads",pool_grads,)
+print("last_conv_layer.output",last_conv_layer.output)
+
+iterate = K.function([model.input],[pool_grads,last_conv_layer.output[0]])
+
+pooled_grads_value, conv_layer_out_value = iterate([img_tensor])
+
+for i in range(32):
+    conv_layer_out_value[:,:,i] *= pooled_grads_value[i]
+
+heatmap = np.mean(conv_layer_out_value, axis=-1)
+
+heatmap = np.maximum(heatmap,0)
+heatmap  /= np.max(heatmap)
+
+img = cv2.imread(imagename)
+img = cv2.resize(img,(224,224))
+heatmap  =  cv2.resize(heatmap,(img.shape[1],img.shape[0]))
+heatmap = np.uint8(255*heatmap)
+heatmap = cv2.applyColorMap(heatmap,cv2.COLORMAP_JET)
+
+# cv2.imshow("img",img)
+# cv2.waitKey()
+cv2.imwrite("img.jpg",img)
+
+img = heatmap * 0.4 +  img
+cv2.imwrite("heatmap.jpg",img)
+plt.imshow(img)
+plt.show()
+# cv2.imshow("grad-cmd",img)
+# cv2.waitKey()
